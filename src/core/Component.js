@@ -2,8 +2,10 @@ export default class Component {
     constructor($target) {
         this.$target = $target
         this.render()
+        this.setup()
     }
 
+    setup() { }
     template() { return `` }
 
     render() {
@@ -12,4 +14,8 @@ export default class Component {
     }
 
     setEvent() { }
+
+    setState(newState = "") {
+        this.$state = newState
+    }
 }
