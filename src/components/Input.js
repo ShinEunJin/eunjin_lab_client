@@ -16,7 +16,8 @@ export default class Input extends Component {
     setEvent() {
         this.$target.querySelector(".submitBtn").addEventListener('click', (e) => {
             e.preventDefault()
-            fetch('http://localhost:5000/api/v1/content', { method: 'POST', body: { text: this.$state }, headers: { 'Content-Type': 'application/json' }, mode: 'no-cors' })
+            console.log('state', this.$state)
+            fetch('http://localhost:5000/api/v1/content', { method: 'POST', body: JSON.stringify({ text: this.$state }), headers: { 'Content-Type': 'application/json' } }).then(res => console.log({ res })).catch(err => console.log({ err }))
         })
 
         this.$target.querySelector(".inputText").addEventListener('keyup', e => {
